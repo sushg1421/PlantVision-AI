@@ -1,0 +1,11 @@
+
+{
+  "Tomato___Late_blight": {
+    "display_name": "Tomato Late Blight",
+    "severity": "high",
+    "symptoms": "Dark brown lesions on leaves and stems",
+    "organic_cures": ["Copper-based fungicide", "Neem oil spray"],
+    "chemical_cures": ["Chlorothalonil", "Mancozeb"],
+    "prevention": "Avoid overhead watering, improve air circulation"
+  }
+}

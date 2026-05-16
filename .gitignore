@@ -1,0 +1,20 @@
+# Dataset
+Back-end/ml/dataset/
+
+# Models
+Back-end/models/*.h5
+Back-end/models/*.pt
+Back-end/models/*.pth
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Flutter
+build/
+.dart_tool/
+
+# Node
+node_modules/
