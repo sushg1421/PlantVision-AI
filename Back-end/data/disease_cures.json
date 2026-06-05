@@ -1,11 +1,344 @@
 
 {
+  "Apple___Apple_scab": {
+    "display_name": "Apple Scab",
+    "severity": "medium",
+    "symptoms": "Dark olive-green spots on leaves and fruits",
+    "organic_cures": ["Neem oil spray", "Sulfur fungicide"],
+    "chemical_cures": ["Myclobutanil", "Captan"],
+    "prevention": "Remove fallen leaves and improve air circulation"
+  },
+
+  "Apple___Black_rot": {
+    "display_name": "Apple Black Rot",
+    "severity": "high",
+    "symptoms": "Brown rotten spots on fruits and leaf lesions",
+    "organic_cures": ["Copper fungicide", "Prune infected branches"],
+    "chemical_cures": ["Mancozeb", "Captan"],
+    "prevention": "Remove mummified fruits and infected branches"
+  },
+
+  "Apple___Cedar_apple_rust": {
+    "display_name": "Cedar Apple Rust",
+    "severity": "medium",
+    "symptoms": "Yellow-orange spots on leaves",
+    "organic_cures": ["Neem oil", "Sulfur spray"],
+    "chemical_cures": ["Myclobutanil", "Propiconazole"],
+    "prevention": "Avoid nearby cedar trees and prune infected leaves"
+  },
+
+  "Apple___healthy": {
+    "display_name": "Healthy Apple Plant",
+    "severity": "none",
+    "symptoms": "No disease symptoms detected",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Maintain regular watering and balanced fertilization"
+  },
+
+  "Blueberry___healthy": {
+    "display_name": "Healthy Blueberry Plant",
+    "severity": "none",
+    "symptoms": "Healthy green leaves and fruits",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Ensure proper soil acidity and watering"
+  },
+
+  "Cherry_(including_sour)___Powdery_mildew": {
+    "display_name": "Cherry Powdery Mildew",
+    "severity": "medium",
+    "symptoms": "White powdery coating on leaves",
+    "organic_cures": ["Baking soda spray", "Neem oil"],
+    "chemical_cures": ["Sulfur fungicide", "Myclobutanil"],
+    "prevention": "Improve airflow and avoid excess humidity"
+  },
+
+  "Cherry_(including_sour)___healthy": {
+    "display_name": "Healthy Cherry Plant",
+    "severity": "none",
+    "symptoms": "Healthy leaves and fruits",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Provide proper sunlight and irrigation"
+  },
+
+  "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+    "display_name": "Corn Gray Leaf Spot",
+    "severity": "high",
+    "symptoms": "Gray rectangular lesions on leaves",
+    "organic_cures": ["Crop rotation", "Compost tea spray"],
+    "chemical_cures": ["Azoxystrobin", "Propiconazole"],
+    "prevention": "Avoid dense planting and remove crop residue"
+  },
+
+  "Corn_(maize)___Common_rust_": {
+    "display_name": "Corn Common Rust",
+    "severity": "medium",
+    "symptoms": "Reddish-brown pustules on leaves",
+    "organic_cures": ["Neem oil spray", "Crop rotation"],
+    "chemical_cures": ["Mancozeb", "Propiconazole"],
+    "prevention": "Use resistant varieties and proper spacing"
+  },
+
+  "Corn_(maize)___Northern_Leaf_Blight": {
+    "display_name": "Corn Northern Leaf Blight",
+    "severity": "high",
+    "symptoms": "Long gray-green lesions on leaves",
+    "organic_cures": ["Compost tea spray", "Remove infected leaves"],
+    "chemical_cures": ["Azoxystrobin", "Pyraclostrobin"],
+    "prevention": "Practice crop rotation and field sanitation"
+  },
+
+  "Corn_(maize)___healthy": {
+    "display_name": "Healthy Corn Plant",
+    "severity": "none",
+    "symptoms": "Healthy green leaves and stems",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Maintain proper irrigation and fertilization"
+  },
+
+  "Grape___Black_rot": {
+    "display_name": "Grape Black Rot",
+    "severity": "high",
+    "symptoms": "Dark circular lesions on leaves and fruits",
+    "organic_cures": ["Neem oil", "Copper fungicide"],
+    "chemical_cures": ["Mancozeb", "Myclobutanil"],
+    "prevention": "Prune infected vines and remove fallen fruits"
+  },
+
+  "Grape___Esca_(Black_Measles)": {
+    "display_name": "Grape Esca (Black Measles)",
+    "severity": "high",
+    "symptoms": "Dark streaks on leaves and berries",
+    "organic_cures": ["Prune infected wood", "Apply compost tea"],
+    "chemical_cures": ["Thiophanate-methyl"],
+    "prevention": "Avoid pruning wounds during wet weather"
+  },
+
+  "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+    "display_name": "Grape Leaf Blight",
+    "severity": "medium",
+    "symptoms": "Brown spots with yellow margins on leaves",
+    "organic_cures": ["Neem oil spray", "Copper fungicide"],
+    "chemical_cures": ["Chlorothalonil", "Mancozeb"],
+    "prevention": "Improve air circulation and remove infected leaves"
+  },
+
+  "Grape___healthy": {
+    "display_name": "Healthy Grape Plant",
+    "severity": "none",
+    "symptoms": "Healthy vines and leaves",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Provide adequate pruning and irrigation"
+  },
+  "Orange___Haunglongbing_(Citrus_greening)": {
+    "display_name": "Orange Citrus Greening",
+    "severity": "high",
+    "symptoms": "Yellow shoots, misshapen fruits, bitter taste",
+    "organic_cures": ["Remove infected trees", "Neem oil for psyllid control"],
+    "chemical_cures": ["Imidacloprid", "Thiamethoxam"],
+    "prevention": "Control psyllid insects and use disease-free seedlings"
+  },
+
+  "Peach___Bacterial_spot": {
+    "display_name": "Peach Bacterial Spot",
+    "severity": "medium",
+    "symptoms": "Dark spots on leaves and fruits",
+    "organic_cures": ["Copper spray", "Remove infected leaves"],
+    "chemical_cures": ["Oxytetracycline", "Copper hydroxide"],
+    "prevention": "Avoid overhead watering and improve air circulation"
+  },
+
+  "Peach___healthy": {
+    "display_name": "Healthy Peach Plant",
+    "severity": "none",
+    "symptoms": "Healthy leaves and fruits",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Maintain regular pruning and irrigation"
+  },
+
+  "Pepper,_bell___Bacterial_spot": {
+    "display_name": "Bell Pepper Bacterial Spot",
+    "severity": "medium",
+    "symptoms": "Water-soaked spots on leaves and fruits",
+    "organic_cures": ["Copper fungicide", "Neem oil spray"],
+    "chemical_cures": ["Streptomycin", "Copper hydroxide"],
+    "prevention": "Use disease-free seeds and avoid wet foliage"
+  },
+
+  "Pepper,_bell___healthy": {
+    "display_name": "Healthy Bell Pepper Plant",
+    "severity": "none",
+    "symptoms": "Healthy green leaves and fruits",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Provide proper watering and nutrient balance"
+  },
+
+  "Potato___Early_blight": {
+    "display_name": "Potato Early Blight",
+    "severity": "medium",
+    "symptoms": "Brown concentric rings on leaves",
+    "organic_cures": ["Neem oil spray", "Compost tea"],
+    "chemical_cures": ["Chlorothalonil", "Mancozeb"],
+    "prevention": "Rotate crops and remove infected debris"
+  },
+
+  "Potato___Late_blight": {
+    "display_name": "Potato Late Blight",
+    "severity": "high",
+    "symptoms": "Dark water-soaked lesions on leaves and stems",
+    "organic_cures": ["Copper fungicide", "Neem oil spray"],
+    "chemical_cures": ["Mancozeb", "Chlorothalonil"],
+    "prevention": "Avoid overhead watering and ensure proper spacing"
+  },
+
+  "Potato___healthy": {
+    "display_name": "Healthy Potato Plant",
+    "severity": "none",
+    "symptoms": "Healthy green foliage",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Maintain healthy soil and proper watering"
+  },
+
+  "Raspberry___healthy": {
+    "display_name": "Healthy Raspberry Plant",
+    "severity": "none",
+    "symptoms": "Healthy leaves and berries",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Provide good drainage and sunlight"
+  },
+
+  "Soybean___healthy": {
+    "display_name": "Healthy Soybean Plant",
+    "severity": "none",
+    "symptoms": "Healthy stems and leaves",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Maintain balanced fertilization and irrigation"
+  },
+
+  "Squash___Powdery_mildew": {
+    "display_name": "Squash Powdery Mildew",
+    "severity": "medium",
+    "symptoms": "White powdery patches on leaves",
+    "organic_cures": ["Milk spray", "Neem oil"],
+    "chemical_cures": ["Sulfur fungicide", "Potassium bicarbonate"],
+    "prevention": "Improve air circulation and avoid overcrowding"
+  },
+
+  "Strawberry___Leaf_scorch": {
+    "display_name": "Strawberry Leaf Scorch",
+    "severity": "medium",
+    "symptoms": "Purple or brown leaf edges and spots",
+    "organic_cures": ["Remove infected leaves", "Neem oil spray"],
+    "chemical_cures": ["Captan", "Myclobutanil"],
+    "prevention": "Avoid overhead watering and improve airflow"
+  },
+
+  "Strawberry___healthy": {
+    "display_name": "Healthy Strawberry Plant",
+    "severity": "none",
+    "symptoms": "Healthy leaves and fruits",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Use clean mulch and proper irrigation"
+  },
+
+  "Tomato___Bacterial_spot": {
+    "display_name": "Tomato Bacterial Spot",
+    "severity": "medium",
+    "symptoms": "Small dark lesions on leaves and fruits",
+    "organic_cures": ["Copper spray", "Neem oil"],
+    "chemical_cures": ["Streptomycin", "Copper hydroxide"],
+    "prevention": "Use disease-free seeds and avoid wet foliage"
+  },
+
+  "Tomato___Early_blight": {
+    "display_name": "Tomato Early Blight",
+    "severity": "medium",
+    "symptoms": "Brown spots with concentric rings on leaves",
+    "organic_cures": ["Compost tea", "Neem oil spray"],
+    "chemical_cures": ["Mancozeb", "Chlorothalonil"],
+    "prevention": "Rotate crops and remove infected leaves"
+  },
+
   "Tomato___Late_blight": {
     "display_name": "Tomato Late Blight",
     "severity": "high",
     "symptoms": "Dark brown lesions on leaves and stems",
     "organic_cures": ["Copper-based fungicide", "Neem oil spray"],
     "chemical_cures": ["Chlorothalonil", "Mancozeb"],
-    "prevention": "Avoid overhead watering, improve air circulation"
+    "prevention": "Avoid overhead watering and improve air circulation"
+  },
+
+  "Tomato___Leaf_Mold": {
+    "display_name": "Tomato Leaf Mold",
+    "severity": "medium",
+    "symptoms": "Yellow patches and mold under leaves",
+    "organic_cures": ["Neem oil", "Increase ventilation"],
+    "chemical_cures": ["Chlorothalonil", "Copper fungicide"],
+    "prevention": "Reduce humidity and avoid overcrowding"
+  },
+
+  "Tomato___Septoria_leaf_spot": {
+    "display_name": "Tomato Septoria Leaf Spot",
+    "severity": "medium",
+    "symptoms": "Small circular spots with gray centers",
+    "organic_cures": ["Neem oil spray", "Remove infected leaves"],
+    "chemical_cures": ["Mancozeb", "Copper fungicide"],
+    "prevention": "Avoid wet foliage and practice crop rotation"
+  },
+
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "display_name": "Tomato Spider Mites",
+    "severity": "medium",
+    "symptoms": "Yellow speckles and webbing on leaves",
+    "organic_cures": ["Neem oil spray", "Insecticidal soap"],
+    "chemical_cures": ["Abamectin", "Bifenthrin"],
+    "prevention": "Maintain humidity and inspect plants regularly"
+  },
+
+  "Tomato___Target_Spot": {
+    "display_name": "Tomato Target Spot",
+    "severity": "medium",
+    "symptoms": "Brown spots with concentric rings",
+    "organic_cures": ["Copper fungicide", "Neem oil"],
+    "chemical_cures": ["Azoxystrobin", "Chlorothalonil"],
+    "prevention": "Improve airflow and remove infected leaves"
+  },
+
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "display_name": "Tomato Yellow Leaf Curl Virus",
+    "severity": "high",
+    "symptoms": "Yellow curled leaves and stunted growth",
+    "organic_cures": ["Neem oil for whiteflies", "Remove infected plants"],
+    "chemical_cures": ["Imidacloprid", "Thiamethoxam"],
+    "prevention": "Control whiteflies and use resistant varieties"
+  },
+
+  "Tomato___Tomato_mosaic_virus": {
+    "display_name": "Tomato Mosaic Virus",
+    "severity": "high",
+    "symptoms": "Mottled leaves and distorted growth",
+    "organic_cures": ["Remove infected plants", "Disinfect tools"],
+    "chemical_cures": ["No effective chemical cure available"],
+    "prevention": "Use virus-free seeds and sanitize equipment"
+  },
+
+  "Tomato___healthy": {
+    "display_name": "Healthy Tomato Plant",
+    "severity": "none",
+    "symptoms": "Healthy green leaves and fruits",
+    "organic_cures": [],
+    "chemical_cures": [],
+    "prevention": "Maintain proper watering, sunlight, and fertilization"
   }
+
 }

@@ -4,13 +4,12 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 
 class ApiService {
-  static String get baseUrl {
-    if (kIsWeb) return 'http://localhost:8000';
-    if (Platform.isAndroid) return 'http://192.168.1.13:8000'; // Physical device
-    if (Platform.isIOS) return 'http://192.168.1.13:8000';     // Physical iPhone
-    return 'http://localhost:8000'; // Windows, macOS, Linux
-  }
-
+ static String get baseUrl {
+  if (kIsWeb) return 'http://localhost:8000';
+  if (Platform.isAndroid) return 'http://192.168.1.11:8000';
+  if (Platform.isIOS) return 'http://192.168.1.11:8000';
+  return 'http://localhost:8000';
+}
   static Future<Map<String, dynamic>> identifyPlant(List<File> images) async {
     final uri     = Uri.parse("$baseUrl/identify");
     final request = http.MultipartRequest("POST", uri);

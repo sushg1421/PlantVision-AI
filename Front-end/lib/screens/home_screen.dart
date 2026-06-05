@@ -1,9 +1,10 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../services/api_service.dart';
 import 'result_screen.dart';
-import 'disease_result_screen.dart'; // ← new import
+import 'disease_result_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,7 +16,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final ImagePicker _picker = ImagePicker();
   bool _loading = false;
-  String _loadingMessage = "Identifying plant..."; // ← made dynamic
+  String _loadingMessage = "Identifying plant...";
+
+  bool get _isMobile => !kIsWeb && (Platform.isAndroid || Platform.isIOS);
 
   Future<void> _pickAndIdentify(ImageSource source) async {
     final List<XFile> images = await _picker.pickMultiImage();
@@ -68,8 +71,6 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() => _loading = false);
     }
   }
-
-  // ── Disease detection methods ─────────────────────────────────────────────
 
   Future<void> _detectDiseaseFromCamera() async {
     final XFile? image = await _picker.pickImage(source: ImageSource.camera);
@@ -169,14 +170,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: 12),
 
-                    _ActionButton(
-                      icon: Icons.camera_alt,
-                      label: "Take Photo",
-                      subtitle: "Capture a real-time photo",
-                      color: const Color(0xFF2C5F2D),
-                      onTap: _capturePhoto,
-                    ),
-                    const SizedBox(height: 12),
+                    if (_isMobile) ...[
+                      _ActionButton(
+                        icon: Icons.camera_alt,
+                        label: "Take Photo",
+                        subtitle: "Capture a real-time photo",
+                        color: const Color(0xFF2C5F2D),
+                        onTap: _capturePhoto,
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+
                     _ActionButton(
                       icon: Icons.photo_library,
                       label: "Upload from Gallery",
@@ -188,14 +192,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(height: 32),
 
                     // ── Divider ──────────────────────────────────────────
-                    Row(children: [
-                      const Expanded(child: Divider(color: Color(0xFFBDBDBD))),
-                      const Padding(
+                    const Row(children: [
+                      Expanded(child: Divider(color: Color(0xFFBDBDBD))),
+                      Padding(
                         padding: EdgeInsets.symmetric(horizontal: 12),
                         child: Text("or",
-                            style: TextStyle(color: Colors.grey, fontSize: 13)),
+                            style:
+                                TextStyle(color: Colors.grey, fontSize: 13)),
                       ),
-                      const Expanded(child: Divider(color: Color(0xFFBDBDBD))),
+                      Expanded(child: Divider(color: Color(0xFFBDBDBD))),
                     ]),
 
                     const SizedBox(height: 32),
@@ -207,14 +212,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: 12),
 
-                    _ActionButton(
-                      icon: Icons.camera_alt_outlined,
-                      label: "Scan Leaf (Camera)",
-                      subtitle: "Check for diseases in real-time",
-                      color: const Color(0xFFB85C00),
-                      onTap: _detectDiseaseFromCamera,
-                    ),
-                    const SizedBox(height: 12),
+                    if (_isMobile) ...[
+                      _ActionButton(
+                        icon: Icons.camera_alt_outlined,
+                        label: "Scan Leaf (Camera)",
+                        subtitle: "Check for diseases in real-time",
+                        color: const Color(0xFFB85C00),
+                        onTap: _detectDiseaseFromCamera,
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+
                     _ActionButton(
                       icon: Icons.image_search,
                       label: "Scan from Gallery",
@@ -266,7 +274,7 @@ class _SectionLabel extends StatelessWidget {
   }
 }
 
-// ── Reusable action button (unchanged) ───────────────────────────────────────
+// ── Reusable action button ────────────────────────────────────────────────────
 class _ActionButton extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -312,8 +320,8 @@ class _ActionButton extends StatelessWidget {
                         fontSize: 18,
                         fontWeight: FontWeight.bold)),
                 Text(subtitle,
-                    style:
-                        const TextStyle(color: Colors.white70, fontSize: 13)),
+                    style: const TextStyle(
+                        color: Colors.white70, fontSize: 13)),
               ],
             )
           ],
