@@ -38,7 +38,7 @@ def identify_plant(image_paths):
     print(f"\n🌿 Plant Identified: {scientific_name}")
     print(f"   Confidence: {confidence:.2%}")
 
-    return scientific_name
+    return scientific_name, confidence  
 
 
 # ─────────────────────────────────────────

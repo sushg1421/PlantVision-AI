@@ -18,6 +18,21 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _loading = false;
   String _loadingMessage = "Identifying plant...";
 
+  // ── Language selection ──────────────────────────────────────────────────────
+  String _selectedLanguage = "English";
+
+  static const List<Map<String, String>> _languages = [
+    {"name": "English",   "flag": "🇬🇧"},
+    {"name": "Kannada",   "flag": "🇮🇳"},
+    {"name": "Hindi",     "flag": "🇮🇳"},
+    {"name": "Tamil",     "flag": "🇮🇳"},
+    {"name": "Telugu",    "flag": "🇮🇳"},
+    {"name": "Malayalam", "flag": "🇮🇳"},
+    {"name": "Marathi",   "flag": "🇮🇳"},
+    {"name": "Bengali",   "flag": "🇮🇳"},
+    {"name": "Gujarati",  "flag": "🇮🇳"},
+  ];
+
   bool get _isMobile => !kIsWeb && (Platform.isAndroid || Platform.isIOS);
 
   Future<void> _pickAndIdentify(ImageSource source) async {
@@ -31,8 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     try {
       final result = await ApiService.identifyPlant(
-        images.map((x) => File(x.path)).toList(),
-      );
+  images.map((x) => File(x.path)).toList(),
+  language: _selectedLanguage,
+);
       if (!mounted) return;
       Navigator.push(
         context,
@@ -57,7 +73,10 @@ class _HomeScreenState extends State<HomeScreen> {
     });
 
     try {
-      final result = await ApiService.identifyPlant([File(image.path)]);
+      final result = await ApiService.identifyPlant(
+    [File(image.path)],
+    language: _selectedLanguage,
+    );
       if (!mounted) return;
       Navigator.push(
         context,
@@ -91,7 +110,11 @@ class _HomeScreenState extends State<HomeScreen> {
     });
 
     try {
-      final result = await ApiService.detectDisease(imageFile);
+      // Pass selected language to API
+      final result = await ApiService.detectDisease(
+        imageFile,
+        language: _selectedLanguage,
+      );
       if (!mounted) return;
       Navigator.push(
         context,
@@ -106,6 +129,51 @@ class _HomeScreenState extends State<HomeScreen> {
     } finally {
       setState(() => _loading = false);
     }
+  }
+
+  // ── Language selector widget ────────────────────────────────────────────────
+  Widget _buildLanguageSelector() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xFF2C5F2D).withOpacity(0.3)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          )
+        ],
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<String>(
+          value: _selectedLanguage,
+          icon: const Icon(Icons.language, color: Color(0xFF2C5F2D), size: 20),
+          style: const TextStyle(
+            color: Color(0xFF2C5F2D),
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+          ),
+          items: _languages.map((lang) {
+            return DropdownMenuItem<String>(
+              value: lang["name"],
+              child: Row(
+                children: [
+                  Text(lang["flag"]!, style: const TextStyle(fontSize: 16)),
+                  const SizedBox(width: 8),
+                  Text(lang["name"]!),
+                ],
+              ),
+            );
+          }).toList(),
+          onChanged: (val) {
+            setState(() => _selectedLanguage = val!);
+          },
+        ),
+      ),
+    );
   }
 
   @override
@@ -125,6 +193,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: const TextStyle(
                           fontSize: 16, color: Color(0xFF2C5F2D)),
                     ),
+                    if (_selectedLanguage != "English") ...[
+                      const SizedBox(height: 8),
+                      Text(
+                        "Translating to $_selectedLanguage...",
+                        style: const TextStyle(
+                            fontSize: 13, color: Colors.grey),
+                      ),
+                    ]
                   ],
                 ),
               )
@@ -161,9 +237,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15, color: Colors.grey),
                     ),
-                    const SizedBox(height: 40),
 
-                    // ── Section: Plant Identification ────────────────────
+                    const SizedBox(height: 24),
+
+                    // ── Language selector ──────────────────────────────────
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Output Language",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF2C5F2D),
+                          ),
+                        ),
+                        _buildLanguageSelector(),
+                      ],
+                    ),
+
+                    const SizedBox(height: 28),
+
+                    // ── Section: Plant Identification ──────────────────────
                     _SectionLabel(
                       icon: Icons.local_florist,
                       label: "Plant Identification",
@@ -191,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     const SizedBox(height: 32),
 
-                    // ── Divider ──────────────────────────────────────────
+                    // ── Divider ────────────────────────────────────────────
                     const Row(children: [
                       Expanded(child: Divider(color: Color(0xFFBDBDBD))),
                       Padding(
@@ -205,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     const SizedBox(height: 32),
 
-                    // ── Section: Disease Detection ───────────────────────
+                    // ── Section: Disease Detection ─────────────────────────
                     _SectionLabel(
                       icon: Icons.coronavirus_outlined,
                       label: "Disease Detection",
@@ -245,7 +340,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// ── Section label widget ──────────────────────────────────────────────────────
+// ── Section label widget ───────────────────────────────────────────────────────
 class _SectionLabel extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -274,7 +369,7 @@ class _SectionLabel extends StatelessWidget {
   }
 }
 
-// ── Reusable action button ────────────────────────────────────────────────────
+// ── Reusable action button ─────────────────────────────────────────────────────
 class _ActionButton extends StatelessWidget {
   final IconData icon;
   final String label;
